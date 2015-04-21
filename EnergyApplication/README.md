@@ -1,4 +1,4 @@
-spr-mvc-hib
+Energy APP
 ===========
 
-Spring MVC + Hibernate + Maven tutorial with all CRUD operations
+Spring MVC + Hibernate + Maven with Excel Read/Write
