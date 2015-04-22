@@ -28,17 +28,7 @@ public class EnergyReportController {
 
   @RequestMapping(value = "/add", method = RequestMethod.GET)
   public ModelAndView addEnergyReportPage() {
-    ModelAndView modelAndView = new ModelAndView("add-energyreport-form");
-    modelAndView.addObject("EnergyReport", new EnergyReport());
-    return modelAndView;
-  }
-
-  @RequestMapping(value = "/add", method = RequestMethod.POST)
-  public ModelAndView addingEnergyReport(@ModelAttribute EnergyReport EnergyReport) {
-
     ModelAndView modelAndView = new ModelAndView("home");
-    EnergyReportService.addEnergyReport(EnergyReport);
-
     try {
       FileInputStream file = new FileInputStream(new File("C:\\new.xlsx"));
 
@@ -55,7 +45,7 @@ public class EnergyReportController {
         Row row = rowIterator.next();
 
         rep.setName(row.getCell(0).getStringCellValue());
-        rep.setRating(row.getCell(1).getStringCellValue());
+        rep.setRating((int) row.getCell(1).getNumericCellValue());
 
         EnergyReportService.addEnergyReport(rep);
 
@@ -77,27 +67,6 @@ public class EnergyReportController {
 
     List<EnergyReport> EnergyReports = EnergyReportService.getEnergyReports();
     modelAndView.addObject("EnergyReports", EnergyReports);
-
-    return modelAndView;
-  }
-
-  @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-  public ModelAndView editEnergyReportPage(@PathVariable Integer id) {
-    ModelAndView modelAndView = new ModelAndView("edit-energyreport-form");
-    EnergyReport EnergyReport = EnergyReportService.getEnergyReport(id);
-    modelAndView.addObject("EnergyReport", EnergyReport);
-    return modelAndView;
-  }
-
-  @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-  public ModelAndView edditingEnergyReport(@ModelAttribute EnergyReport EnergyReport, @PathVariable Integer id) {
-
-    ModelAndView modelAndView = new ModelAndView("home");
-
-    EnergyReportService.updateEnergyReport(EnergyReport);
-
-    String message = "EnergyReport was successfully edited.";
-    modelAndView.addObject("message", message);
 
     return modelAndView;
   }

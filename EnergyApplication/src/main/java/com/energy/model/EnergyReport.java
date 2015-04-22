@@ -15,7 +15,7 @@ public class EnergyReport {
 
   private String name;
 
-  private String rating;
+  private Integer rating;
 
   public Integer getId() {
     return id;
@@ -33,12 +33,12 @@ public class EnergyReport {
     this.name = name;
   }
 
-  public String getRating() {
+  public Integer getRating() {
     return rating;
   }
 
-  public void setRating(String rating) {
-    this.rating = rating;
+  public void setRating(Integer d) {
+    this.rating = d;
   }
 
 }

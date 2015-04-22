@@ -11,7 +11,7 @@
 <h1>Home page</h1>
 <p>
 ${message}<br/>
-<a href="${pageContext.request.contextPath}/energyreport/add.html">Add new energyreport</a><br/>
+<a href="${pageContext.request.contextPath}/energyreport/add.html">Import Excel File</a><br/>
 <a href="${pageContext.request.contextPath}/energyreport/list.html">energyreport list</a><br/>
 </p>
 </body>
