@@ -16,7 +16,7 @@
 <body>
 <h1>List of energyreports</h1>
 <p>Here you can see the list of the energyreports, edit them, remove or update.</p>
-<table style="display:none;" class="highchart" data-graph-container-before="1" data-graph-type="area" border="1px" cellpadding="0" cellspacing="0" >
+<table style="display:none;" class="highchart" data-graph-container-before="1" data-graph-type="column" border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
 <th width="15%">name</th><th width="10%">rating</th>

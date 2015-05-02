@@ -9,24 +9,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>List of energyreports</title>
+<script src="../resources/jquery.min.js" type="text/javascript"></script>
+<script src="../resources/highcharts.js" type="text/javascript"></script>
+<script src="../resources/jquery.highchartTable.js" type="text/javascript"></script>
 </head>
 <body>
 <h1>List of energyreports</h1>
 <p>Here you can see the list of the energyreports, edit them, remove or update.</p>
-<table border="1px" cellpadding="0" cellspacing="0" >
+<table style="display:none;" class="highchart" data-graph-container-before="1" data-graph-type="area" border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
-<th width="10%">id</th><th width="15%">name</th><th width="10%">rating</th><th width="10%">actions</th>
+<th width="15%">name</th><th width="10%">rating</th>
 </tr>
 </thead>
 <tbody>
 <c:forEach var="energyreport" items="${EnergyReports}">
 <tr>
-	<td>${energyreport.id}</td>
 	<td>${energyreport.name}</td>
 	<td>${energyreport.rating}</td>
-	<td>
-	<a href="${pageContext.request.contextPath}/energyreport/edit/${energyreport.id}.html">Edit</a><br/>
+</tr>
+</c:forEach>
+</tbody>
+</table>
+
+<table style="margin-left:auto;margin-right:auto;" border="1px" cellpadding="0" cellspacing="0" >
+<thead>
+<tr>
+<th  style="text-align:center;" width="10%">id</th><th style="text-align:center;" width="15%">name</th><th style="text-align:center;" width="10%">rating</th><th style="text-align:center;" width="10%">actions</th>
+</tr>
+</thead>
+<tbody>
+<c:forEach var="energyreport" items="${EnergyReports}">
+<tr>
+	<td style="text-align:center;">${energyreport.id}</td>
+	<td style="text-align:center;">${energyreport.name}</td>
+	<td style="text-align:center;">${energyreport.rating}</td>
+	<td style="text-align:center;">
 	<a href="${pageContext.request.contextPath}/energyreport/delete/${energyreport.id}.html">Delete</a><br/>
 	</td>
 </tr>
@@ -35,6 +53,10 @@
 </table>
 
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
-
+<script>
+$(document).ready(function() {
+	  $('table.highchart').highchartTable();
+});
+</script>
 </body>
 </html>
